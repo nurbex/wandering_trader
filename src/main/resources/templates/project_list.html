@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<html lang="en">
+<!-- CSS only -->
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+
+
+<section layout:fragment="content">
+  <h1 class="h2">Project List</h1>
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th></th>
+        <th scope="col">#UUID</th>
+        <th scope="col">Project_Name</th>
+        <th scope="col">Project_Description</th>
+        <th scope="col">Image</th>
+        <th scope="col">/</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="p : ${projects}">
+        <th scope="row">1</th>
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.projectName}"></td>
+        <td th:text="${p.projectDescription}"></td>
+        <td th:text="${p.projectImage.name}"></td>
+        <td>
+          <a th:href="@{/admin/projects/delete(id=${p.id})}" th:text="Delete" class="btn btn-danger"></a> |
+          <a th:href="@{/admin/projects/edit(id=${p.id})}" th:text="Edit" class="btn btn-primary"></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <a th:href="@{/admin/projects/new}" class="btn btn-primary"> Create New Project </a>
+
+  </div>
+
+</section>
+
+</body>
+</html>

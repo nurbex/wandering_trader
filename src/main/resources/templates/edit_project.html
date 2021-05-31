@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<html lang="en">
+<!-- CSS only -->
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<section layout:fragment="content">
+  <h1>Create Project</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <form th:action="@{/admin/projects/edit}" method="POST" th:object="${project}">
+          <input type="text" id="pid" name="id" th:field="*{id}" hidden><br>
+          <label for="pname" class="form-label">Project name:</label><br>
+          <input type="text" id="pname" name="name" th:field="*{projectName}" class="form-control"><br>
+          <label for="projectDescription" class="form-label">Project Description:</label><br>
+          <input type="text" id="projectDescription" name="projectDescription" th:field="*{projectDescription}" class="form-control"><br>
+          <label for="images" class="form-label">ImageUrl:</label><br>
+          <select id="images" class="form-select" name="images" th:field="*{projectImage}" single>
+            <option th:each="image : ${images}" th:value="${image.name}" th:text="${image.name}"></option>
+          </select><br>
+          <input type="submit" value="Update" class="btn btn-success">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
