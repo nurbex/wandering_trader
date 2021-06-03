@@ -14,74 +14,20 @@
 <section layout:fragment="content">
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 fw-normal">Portfolio</h1>
+            <h1 class="display-4 fw-normal">My portfolio manager</h1>
             <p class="lead fw-normal">My projects and experiments with java, spring framework, bootstrap, stock trading apps and etc. </p>
-            <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+            <a th:href="@{/admin/projects/new}" class="btn btn-primary"> Create new project</a>
         </div>
     </div>
 
-    <div class="container px-4 py-5" id="custom-cards">
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-            <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
-                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
-                        <ul class="d-flex list-unstyled mt-auto">
-                            <li class="me-auto">
-                                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                            </li>
-                            <li class="d-flex align-items-center me-3">
-                                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                <small>Earth</small>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                <small>3d</small>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
-                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
-                        <ul class="d-flex list-unstyled mt-auto">
-                            <li class="me-auto">
-                                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                            </li>
-                            <li class="d-flex align-items-center me-3">
-                                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                <small>Pakistan</small>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                <small>4d</small>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
-                    <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-                        <ul class="d-flex list-unstyled mt-auto">
-                            <li class="me-auto">
-                                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                            </li>
-                            <li class="d-flex align-items-center me-3">
-                                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                <small>California</small>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                <small>5d</small>
-                            </li>
-                        </ul>
-                    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col " th:each="p : ${projects}">
+            <div class="card shadow-sm">
+                <img th:src="${p.projectImage.link}" class="card-img-top" alt="..." >
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${p.projectName}"></h5>
+                    <p class="card-text text-truncate" th:text="${p.projectDescription}"></p>
+                    <a th:href="@{/project/details(id=${p.id})}" class="btn btn-outline-primary btn-sm">Learn more</a>
                 </div>
             </div>
         </div>

@@ -33,14 +33,14 @@
         <td th:text="${p.projectDescription}"></td>
         <td th:text="${p.projectImage.name}"></td>
         <td>
-          <a th:href="@{/admin/projects/delete(id=${p.id})}" th:text="Delete" class="btn btn-danger"></a> |
-          <a th:href="@{/admin/projects/edit(id=${p.id})}" th:text="Edit" class="btn btn-primary"></a>
+          <a th:href="@{/admin/projects/delete(id=${p.id})}" th:text="Delete" class="btn btn-danger btn-sm"></a> |
+          <a th:href="@{/admin/projects/edit(id=${p.id})}" th:text="Edit" class="btn btn-primary btn-sm"></a>
         </td>
       </tr>
       </tbody>
     </table>
 
-    <a th:href="@{/admin/projects/new}" class="btn btn-primary"> Create New Project </a>
+    <a th:href="@{/admin/projects/new}" class="btn btn-primary"> Create new project</a>
 
   </div>
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<html lang="en">
+<!-- CSS only -->
+<head>
+  <meta charset="UTF-8">
+  <title>Project details</title>
+</head>
+<body>
+<section layout:fragment="content">
+  <h1 th:text="${project.projectName}"></h1>
+  <h3 th:text="${project.id}"></h3>
+  <p th:text="${project.projectDescription}"></p>
+  <a th:href="@{/admin/projects/edit(id=${project.id})}" th:text="Edit" class="btn btn-outline-warning btn-sm"></a>
+</section>
+
+</body>
+</html>
