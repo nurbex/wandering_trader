@@ -12,22 +12,39 @@
 
 
 <section layout:fragment="content">
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 fw-normal">My portfolio manager</h1>
-            <p class="lead fw-normal">My projects and experiments with java, spring framework, bootstrap, stock trading apps and etc. </p>
-            <a th:href="@{/admin/projects/new}" class="btn btn-primary"> Create new project</a>
+    <div class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="display-4 fw-normal">My portfolio manager</h1>
+                <p class="lead fw-normal">My projects and experiments with java, spring framework, bootstrap, stock trading apps and etc.</p>
+                <p>
+                    <a th:href="@{/admin/projects/new}" class="btn btn-primary"> Create new project</a>
+                </p>
+            </div>
         </div>
     </div>
-
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col " th:each="p : ${projects}">
-            <div class="card shadow-sm">
+            <div class="card">
                 <img th:src="${p.projectImage.link}" class="card-img-top" alt="..." >
                 <div class="card-body">
                     <h5 class="card-title" th:text="${p.projectName}"></h5>
+                    <div class="rating">
+                        <label for="stars-rating-1"><i class="fa fa-star text-warning"></i></label>
+                        <label for="stars-rating-2"><i class="fa fa-star text-warning"></i></label>
+                        <label for="stars-rating-3"><i class="fa fa-star text-warning"></i></label>
+                        <label for="stars-rating-4"><i class="fa fa-star"></i></label>
+                        <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+                    </div>
                     <p class="card-text text-truncate" th:text="${p.projectDescription}"></p>
-                    <a th:href="@{/project/details(id=${p.id})}" class="btn btn-outline-primary btn-sm">Learn more</a>
+<!--                    <a th:href="@{/project/details(id=${p.id})}" class="btn btn-outline-primary btn-sm">Learn more</a>-->
+                    <div class="product-info smart-form">
+                        <div class="row">
+                            <div class="col">
+                                <a th:href="@{/project/details(id=${p.id})}" class="btn btn-outline-primary btn-sm">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

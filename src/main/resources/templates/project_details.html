@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{layout.html}">
 <html lang="en">
 <!-- CSS only -->
@@ -11,9 +12,26 @@
 <body>
 <section layout:fragment="content">
   <h1 th:text="${project.projectName}"></h1>
-  <h3 th:text="${project.id}"></h3>
+  <div class="container">
+    <div class="product-info smart-form">
+      <div class="row">
+        <div >
+          <div class="rating">
+            <label for="stars-rating-1"><i class="fa fa-star text-warning"></i></label>
+            <label for="stars-rating-2"><i class="fa fa-star text-warning"></i></label>
+            <label for="stars-rating-3"><i class="fa fa-star text-warning"></i></label>
+            <label for="stars-rating-4"><i class="fa fa-star"></i></label>
+            <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+          </div>
+        </div>
+        <div >
+          <h5 class="h5" th:text="${project.id}"></h5>
+        </div>
+      </div>
+    </div>
   <p th:text="${project.projectDescription}"></p>
-  <a th:href="@{/admin/projects/edit(id=${project.id})}" th:text="Edit" class="btn btn-outline-warning btn-sm"></a>
+  <a th:href="@{/admin/projects/edit(id=${project.id})}" sec:authorize="isAuthenticated()" th:text="Edit" class="btn btn-outline-warning btn-sm"></a>
+  </div>
 </section>
 
 </body>

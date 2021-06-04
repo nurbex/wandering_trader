@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <head>
@@ -13,7 +14,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <meta name="theme-color" content="#7952b3">
-
+    <!-- Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link th:href="@{/styles/custom.css}" rel="stylesheet">
     <title>Wandering trader</title>
@@ -32,16 +34,25 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Wandering Trader</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/projects}">Projects</a>
+                        <a class="nav-link" href="/admin/projects" sec:authorize="hasAuthority('ADMIN')">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/files}">Files</a>
+                        <a class="nav-link" href="/admin/files" sec:authorize="hasAuthority('ADMIN')">Files</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="/register" sec:authorize="!isAuthenticated()">Sign-Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login" sec:authorize="!isAuthenticated()">Sign-In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout" sec:authorize="isAuthenticated()">Sign-Out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">more ...</a>
                     </li>
                 </ul>
                 <form class="d-flex">
