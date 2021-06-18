@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/admin/files")
-public class FileHandlerController {
+public class AdminFileHandlerController {
     @Autowired
     FileStorageService fileStorageService;
 

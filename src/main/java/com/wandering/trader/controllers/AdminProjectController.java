@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin/projects")
-public class ProjectController {
+public class AdminProjectController {
 
     @Autowired
     ProjectService projectService;
