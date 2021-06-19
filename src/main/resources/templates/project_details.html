@@ -17,11 +17,11 @@
       <div class="row">
         <div >
           <div class="rating">
-            <label for="stars-rating-1"><i class="fa fa-star text-warning"></i></label>
-            <label for="stars-rating-2"><i class="fa fa-star text-warning"></i></label>
-            <label for="stars-rating-3"><i class="fa fa-star text-warning"></i></label>
-            <label for="stars-rating-4"><i class="fa fa-star"></i></label>
-            <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+            <label ><i class="fa fa-star text-warning"></i></label>
+            <label ><i class="fa fa-star text-warning"></i></label>
+            <label ><i class="fa fa-star text-warning"></i></label>
+            <label ><i class="fa fa-star"></i></label>
+            <label ><i class="fa fa-star"></i></label>
           </div>
         </div>
         <div >
@@ -30,7 +30,7 @@
       </div>
     </div>
   <p th:text="${project.projectDescription}"></p>
-  <a th:href="@{/admin/projects/edit(id=${project.id})}" sec:authorize="isAuthenticated()" th:text="Edit" class="btn btn-outline-warning btn-sm"></a>
+  <a th:href="@{/admin/projects/edit(id=${project.id})}" sec:authorize="hasAuthority('ADMIN')" th:text="Edit" class="btn btn-outline-warning btn-sm"></a>
   </div>
 </section>
 

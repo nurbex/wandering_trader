@@ -66,7 +66,7 @@ public class AdminProjectController {
     public String saveProject(Project project){
 
         projectService.createOrUpdateProject(project);
-        return "redirect:/admin/projects";
+        return "redirect:/project/details?id="+project.getId();
     }
 }
 

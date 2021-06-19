@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{layout.html}">
 <html lang="en">
 <!-- CSS only -->
@@ -18,7 +19,7 @@
                 <h1 class="display-4 fw-normal">My portfolio manager</h1>
                 <p class="lead fw-normal">My projects and experiments with java, spring framework, bootstrap, stock trading apps and etc.</p>
                 <p>
-                    <a th:href="@{/admin/projects/new}" class="btn btn-primary"> Create new project</a>
+                    <a th:href="@{/admin/projects/new}" sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary"> Create new project</a>
                 </p>
             </div>
         </div>
