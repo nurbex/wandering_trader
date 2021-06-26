@@ -9,21 +9,27 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
     private Long id;
-    private String task;
+    private String todo;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public enum STATUS {
+    public enum TYPE {
         IDEA,
         BUG,
         ISSUE,
         FEATURE,
         ENHANCEMENT,
+    }
+
+    public enum STATUS {
+        TODO,
         THISWEEK,
         TODAY,
         INPROGRESS,
         DONE
     };
+
+    private TYPE type;
 
     private STATUS status;
 
@@ -43,12 +49,12 @@ public class Task {
         this.id = id;
     }
 
-    public String getTask() {
-        return task;
+    public String getTodo() {
+        return todo;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setTodo(String todo) {
+        this.todo = todo;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -81,5 +87,21 @@ public class Task {
 
     public void setOwner(CustomUser owner) {
         this.owner = owner;
+    }
+
+    public TYPE getType() {
+        return type;
+    }
+
+    public void setType(TYPE type) {
+        this.type = type;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }
