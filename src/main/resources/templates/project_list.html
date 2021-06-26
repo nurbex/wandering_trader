@@ -36,6 +36,7 @@
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a th:href="@{/admin/projects/delete(id=${p.id})}" th:text="Delete" class="btn btn-outline-danger btn-sm"></a>
             <a th:href="@{/admin/projects/edit(id=${p.id})}" th:text="Edit" class="btn btn-outline-success btn-sm"></a>
+            <a th:href="@{/admin/tasks(id=${p.id})}" th:text="Task_Manager" class="btn btn-outline-info btn-sm"></a>
           </div>
         </td>
       </tr>

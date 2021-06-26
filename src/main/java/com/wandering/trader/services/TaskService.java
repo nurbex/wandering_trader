@@ -21,7 +21,11 @@ public class TaskService {
         taskRepository.save(task);
     }
 
-    public List<Task> getTaskListByStatus(Task.STATUS status){
-        return taskRepository.findAllByStatus(status);
+    public void removeTaskById(Long id){
+        taskRepository.deleteById(id);
+    }
+
+    public List<Task> getTaskListByProjectIdAndStatus(Long id, Task.STATUS status){
+        return taskRepository.findAllByProjectIdAndStatus(id, status);
     }
 }

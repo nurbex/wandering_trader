@@ -27,7 +27,10 @@ public class Task {
 
     private STATUS status;
 
-    @ManyToOne
+    @OneToOne
+    Project project;
+
+    @OneToOne
     CustomUser owner;
 
     public Task() {}
