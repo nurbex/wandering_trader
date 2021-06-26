@@ -25,15 +25,16 @@ public class TaskController {
     ProjectService projectService;
 
     @GetMapping
-    public String getTasks(@RequestParam Long id, Model model){
+    public String getTasks(@RequestParam Long id, Model model, Authentication authentication){
         model.addAttribute("task", new Task());
         model.addAttribute("types", Task.TYPE.values());
         model.addAttribute("projectId", id);
         model.addAttribute("statuses", Task.STATUS.values());
-        model.addAttribute("thisWeek", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.THISWEEK));
-        model.addAttribute("today", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.TODAY));
-        model.addAttribute("inProgress", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.INPROGRESS));
-        model.addAttribute("done", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.DONE));
+        model.addAttribute("toDos", taskService.getTaskListByProjectIdAndOwnerAndStatus(id,(CustomUser)authentication.getPrincipal(),Task.STATUS.TODO));
+        model.addAttribute("thisWeeks", taskService.getTaskListByProjectIdAndOwnerAndStatus(id,(CustomUser)authentication.getPrincipal(),Task.STATUS.THISWEEK));
+        model.addAttribute("todays", taskService.getTaskListByProjectIdAndOwnerAndStatus(id,(CustomUser)authentication.getPrincipal(),Task.STATUS.TODAY));
+        model.addAttribute("inProgresses", taskService.getTaskListByProjectIdAndOwnerAndStatus(id,(CustomUser)authentication.getPrincipal(),Task.STATUS.INPROGRESS));
+        model.addAttribute("dones", taskService.getTaskListByProjectIdAndOwnerAndStatus(id,(CustomUser)authentication.getPrincipal(),Task.STATUS.DONE));
         return "task_manager";
     }
 

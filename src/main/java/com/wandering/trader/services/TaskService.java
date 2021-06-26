@@ -1,5 +1,6 @@
 package com.wandering.trader.services;
 
+import com.wandering.trader.domain.CustomUser;
 import com.wandering.trader.domain.Task;
 import com.wandering.trader.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
-    public List<Task> getTaskListByProjectIdAndStatus(Long id, Task.STATUS status){
-        return taskRepository.findAllByProjectIdAndStatus(id, status);
+    public List<Task> getTaskListByProjectIdAndOwnerAndStatus(Long id, CustomUser owner, Task.STATUS status){
+        return taskRepository.findAllByProjectIdAndOwnerAndStatus(id, owner,status);
     }
 }
