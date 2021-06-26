@@ -22,9 +22,9 @@ public class TaskController {
         model.addAttribute("issues", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.ISSUE));
         model.addAttribute("features", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.FEATURE));
         model.addAttribute("enhancements", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.ENHANCEMENT));
-        model.addAttribute("thisweek", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.THISWEEK));
+        model.addAttribute("thisWeek", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.THISWEEK));
         model.addAttribute("today", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.TODAY));
-        model.addAttribute("test", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.TEST));
+        model.addAttribute("inProgress", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.INPROGRESS));
         model.addAttribute("done", taskService.getTaskListByProjectIdAndStatus(id,Task.STATUS.DONE));
         return "task_manager";
     }

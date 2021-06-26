@@ -21,7 +21,7 @@ public class Task {
         ENHANCEMENT,
         THISWEEK,
         TODAY,
-        TEST,
+        INPROGRESS,
         DONE
     };
 
