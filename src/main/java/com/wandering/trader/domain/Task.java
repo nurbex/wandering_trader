@@ -25,7 +25,6 @@ public class Task {
         TODO,
         THISWEEK,
         TODAY,
-        INPROGRESS,
         DONE
     };
 
