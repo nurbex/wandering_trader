@@ -61,10 +61,11 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card"
+                         th:each="todo : ${toDos}">
                         <div class="card-body">
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
+                            <p class="card-text" th:text="${todo.todo}"></p>
+                            <p class="card-text" th:text="${todo.createdAt}"></p>
                             <a href="#" class="btn btn-primary btn-sm">
                                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                            class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -90,16 +91,17 @@
                                     </h6>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card"
+                                 th:each="todo : ${thisWeeks}">
                                 <div class="card-body">
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
+                                    <p class="card-text" th:text="${todo.todo}"></p>
+                                    <p class="card-text" th:text="${todo.createdAt}"></p>
                                     <a href="#" class="btn btn-primary btn-sm">
-                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                   fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                        </svg></span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                           class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg></span>
                                     </a>
                                 </div>
                             </div>
@@ -114,16 +116,17 @@
                                     </h6>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card"
+                                 th:each="todo : ${todays}">
                                 <div class="card-body">
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
+                                    <p class="card-text" th:text="${todo.todo}"></p>
+                                    <p class="card-text" th:text="${todo.createdAt}"></p>
                                     <a href="#" class="btn btn-primary btn-sm">
-                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                   fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                        </svg></span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                           class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg></span>
                                     </a>
                                 </div>
                             </div>
@@ -138,16 +141,17 @@
                             <h4 class="text-center">
                                 In Progress
                             </h4>
-                            <div class="card">
+                            <div class="card"
+                                 th:each="todo : ${inProgresses}">
                                 <div class="card-body">
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
+                                    <p class="card-text" th:text="${todo.todo}"></p>
+                                    <p class="card-text" th:text="${todo.createdAt}"></p>
                                     <a href="#" class="btn btn-primary btn-sm">
-                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                   fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                        </svg></span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                           class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg></span>
                                     </a>
                                 </div>
                             </div>
@@ -158,16 +162,17 @@
                             <h4 class="text-center">
                                 Done
                             </h4>
-                            <div class="card">
+                            <div class="card"
+                                 th:each="todo : ${dones}">
                                 <div class="card-body">
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
+                                    <p class="card-text" th:text="${todo.todo}"></p>
+                                    <p class="card-text" th:text="${todo.createdAt}"></p>
                                     <a href="#" class="btn btn-primary btn-sm">
-                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                   fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                        </svg></span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                           class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg></span>
                                     </a>
                                 </div>
                             </div>
