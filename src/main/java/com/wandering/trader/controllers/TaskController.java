@@ -53,14 +53,11 @@ public class TaskController {
 
     @PostMapping("updateStatus")
     public String updateStatusOfTask(@RequestParam Long projectId, @RequestParam Long taskId){
-        //System.out.println("---------------------------------------------------------> this is task id: "+ taskId);
         Optional<Task> taskOptional = taskService.findTaskById(taskId);
         if (!taskOptional.isPresent())
             return "redirect:/admin/tasks?id="+projectId;
 
-
         if(taskService.findTaskById(taskId).get().getStatus().equals(Task.STATUS.TODO)){
-            System.out.println("--------------------------------------------------------------> true");
             taskOptional.get().setStatus(Task.STATUS.THISWEEK);
             taskService.saveOrUpdateTask(taskOptional.get());
         }else {

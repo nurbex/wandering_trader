@@ -63,8 +63,15 @@
 
                     <div class="card" th:each="todo : ${toDos}">
                         <div class="card-body">
+                            <!--Badges-->
+                            <span class="badge text-dark bg-info"  th:if = "${todo.type.toString == 'IDEA'}" th:text="${todo.type}"></span>
+                            <span class="badge bg-danger" th:if = "${todo.type.toString == 'BUG'}" th:text="${todo.type}"></span>
+                            <span class="badge text-dark bg-warning" th:if = "${todo.type.toString == 'ISSUE'}" th:text="${todo.type}"></span>
+                            <span class="badge bg-primary" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
+                            <span class="badge bg-success" th:if = "${todo.type.toString == 'ENHANCEMENT'}" th:text="${todo.type}"></span>
+
                             <p class="card-text" th:text="${todo.todo}"></p>
-                            <p class="card-text" th:text="${todo.createdAt}"></p>
+                            <p class="card-text" ><small th:text="${todo.createdAt}"></small></p>
                             <form class="row g-3" th:action="@{/admin/tasks/updateStatus}" method="POST">
                                 <input hidden type="text" name="projectId" th:value="${projectId}"/>
                                 <input hidden type="text" name="taskId" th:value="${todo.id}"/>
@@ -99,8 +106,15 @@
                             <div class="card"
                                  th:each="todo : ${todays}">
                                 <div class="card-body">
+                                    <!--Badges-->
+                                    <span class="badge text-dark bg-info"  th:if = "${todo.type.toString == 'IDEA'}" th:text="${todo.type}"></span>
+                                    <span class="badge bg-danger" th:if = "${todo.type.toString == 'BUG'}" th:text="${todo.type}"></span>
+                                    <span class="badge text-dark bg-warning" th:if = "${todo.type.toString == 'ISSUE'}" th:text="${todo.type}"></span>
+                                    <span class="badge bg-primary" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
+                                    <span class="badge bg-success" th:if = "${todo.type.toString == 'ENHANCEMENT'}" th:text="${todo.type}"></span>
+
                                     <p class="card-text" th:text="${todo.todo}"></p>
-                                    <p class="card-text" th:text="${todo.createdAt}"></p>
+                                    <p class="card-text" ><small th:text="${todo.createdAt}"></small></p>
                                     <form class="row g-3" th:action="@{/admin/tasks/updateStatus}" method="POST">
                                         <input hidden type="text" name="projectId" th:value="${projectId}"/>
                                         <input hidden type="text" name="taskId" th:value="${todo.id}"/>
@@ -130,8 +144,15 @@
                             <div class="card"
                                  th:each="todo : ${thisWeeks}">
                                 <div class="card-body">
+                                    <!--Badges-->
+                                    <span class="badge text-dark bg-info"  th:if = "${todo.type.toString == 'IDEA'}" th:text="${todo.type}"></span>
+                                    <span class="badge bg-danger" th:if = "${todo.type.toString == 'BUG'}" th:text="${todo.type}"></span>
+                                    <span class="badge text-dark bg-warning" th:if = "${todo.type.toString == 'ISSUE'}" th:text="${todo.type}"></span>
+                                    <span class="badge bg-primary" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
+                                    <span class="badge bg-success" th:if = "${todo.type.toString == 'ENHANCEMENT'}" th:text="${todo.type}"></span>
+
                                     <p class="card-text" th:text="${todo.todo}"></p>
-                                    <p class="card-text" th:text="${todo.createdAt}"></p>
+                                    <p class="card-text" ><small th:text="${todo.createdAt}"></small></p>
                                     <form class="row g-3" th:action="@{/admin/tasks/updateStatus}" method="POST">
                                         <input hidden type="text" name="projectId" th:value="${projectId}"/>
                                         <input hidden type="text" name="taskId" th:value="${todo.id}"/>
@@ -159,8 +180,15 @@
                     <div class="card"
                          th:each="todo : ${dones}">
                         <div class="card-body">
+                            <!--Badges-->
+                            <span class="badge text-dark bg-info"  th:if = "${todo.type.toString == 'IDEA'}" th:text="${todo.type}"></span>
+                            <span class="badge bg-danger" th:if = "${todo.type.toString == 'BUG'}" th:text="${todo.type}"></span>
+                            <span class="badge text-dark bg-warning" th:if = "${todo.type.toString == 'ISSUE'}" th:text="${todo.type}"></span>
+                            <span class="badge bg-primary" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
+                            <span class="badge bg-success" th:if = "${todo.type.toString == 'ENHANCEMENT'}" th:text="${todo.type}"></span>
+
                             <p class="card-text" th:text="${todo.todo}"></p>
-                            <p class="card-text" th:text="${todo.createdAt}"></p>
+                            <p class="card-text" ><small th:text="${todo.createdAt}"></small></p>
                             <form class="row g-3" th:action="@{/admin/tasks/updateStatus}" method="POST">
                                 <input hidden type="text" name="projectId" th:value="${projectId}"/>
                                 <input hidden type="text" name="taskId" th:value="${todo.id}"/>
