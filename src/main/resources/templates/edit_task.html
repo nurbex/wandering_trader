@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<html lang="en">
+<!-- CSS only -->
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+</head>
+<body>
+<section layout:fragment="content">
+  <h5>Edit Task</h5>
+  <form class="row g-3" th:action="@{/admin/tasks/edit}" method="POST" th:object="${task}">
+    <input hidden type="text" name="id" th:field="*{id}" th:value="${id}"/>
+    <input hidden type="text" name="id" th:field="*{project}" th:value="${project}"/>
+    <input hidden type="text" name="id" th:field="*{status}" th:value="${status}"/>
+    <input hidden type="text" name="id" th:field="*{createdAt}" th:value="${createdAt}"/>
+    <input hidden type="text" name="id" th:field="*{updatedAt}" th:value="${updatedAt}"/>
+    <input hidden type="text" name="id" th:field="*{owner}" th:value="${owner}"/>
+    <div class="col-12">
+      <label for="inputTaskEdit" class="form-label">Task</label>
+      <textarea class="form-control" id="inputTaskEdit" name="todo" rows="6"
+                th:field="*{todo}">
+      </textarea>
+    </div>
+    <div class="col-md-4">
+      <label for="inputStateEdit" class="form-label">Type</label>
+      <select id="inputStateEdit" class="form-select" name="type" th:field="*{type}">
+        <option th:value="${type}" th:each="type : ${types}"
+                th:text="${type}"></option>
+      </select>
+    </div>
+    <input hidden type="text" name="projectId" th:value="${projectId}"/>
+    <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
+      <a class="btn btn-secondary" th:href="@{/admin/tasks(id=${projectId})}">
+        Cancel
+      </a>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</section>
+
+</body>
+</html>

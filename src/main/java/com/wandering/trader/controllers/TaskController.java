@@ -80,4 +80,18 @@ public class TaskController {
         }
         return "redirect:/admin/tasks?id="+projectId;
     }
+
+    @GetMapping("edit")
+    public String editTaskGet(@RequestParam Long taskId, Model model){
+        model.addAttribute("types", Task.TYPE.values());
+        model.addAttribute("task", taskService.findTaskById(taskId));
+        model.addAttribute("projectId", taskService.findTaskById(taskId).get().getProject().getId());
+        return"edit_task";
+    }
+
+    @PostMapping("edit")
+    public String saveTask(@RequestParam Long projectId, Task task){
+        taskService.saveOrUpdateTask(task);
+        return"redirect:/admin/tasks?id="+projectId;
+    }
 }
