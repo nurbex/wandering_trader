@@ -11,8 +11,8 @@
 </head>
 <body>
 <section layout:fragment="content">
-    <h1>Project Task Manager</h1>
     <div class="container">
+        <h1>Project Task Manager</h1>
         <div class="row row-cols-1 row-cols-xl-3 g-1">
             <div class="col">
                 <div class="row row-cols-1 g-1 p-1">
@@ -67,7 +67,7 @@
                             <span class="badge text-dark bg-info"  th:if = "${todo.type.toString == 'IDEA'}" th:text="${todo.type}"></span>
                             <span class="badge bg-danger" th:if = "${todo.type.toString == 'BUG'}" th:text="${todo.type}"></span>
                             <span class="badge text-dark bg-warning" th:if = "${todo.type.toString == 'ISSUE'}" th:text="${todo.type}"></span>
-                            <span class="badge bg-primary" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
+                            <span class="badge text-dark" style="background-color: #fd7e14" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
                             <span class="badge bg-success" th:if = "${todo.type.toString == 'ENHANCEMENT'}" th:text="${todo.type}"></span>
 
                             <p class="card-text" th:text="${todo.todo}"></p>
@@ -110,7 +110,7 @@
                                     <span class="badge text-dark bg-info"  th:if = "${todo.type.toString == 'IDEA'}" th:text="${todo.type}"></span>
                                     <span class="badge bg-danger" th:if = "${todo.type.toString == 'BUG'}" th:text="${todo.type}"></span>
                                     <span class="badge text-dark bg-warning" th:if = "${todo.type.toString == 'ISSUE'}" th:text="${todo.type}"></span>
-                                    <span class="badge bg-primary" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
+                                    <span class="badge text-dark" style="background-color: #fd7e14" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
                                     <span class="badge bg-success" th:if = "${todo.type.toString == 'ENHANCEMENT'}" th:text="${todo.type}"></span>
 
                                     <p class="card-text" th:text="${todo.todo}"></p>
@@ -148,7 +148,7 @@
                                     <span class="badge text-dark bg-info"  th:if = "${todo.type.toString == 'IDEA'}" th:text="${todo.type}"></span>
                                     <span class="badge bg-danger" th:if = "${todo.type.toString == 'BUG'}" th:text="${todo.type}"></span>
                                     <span class="badge text-dark bg-warning" th:if = "${todo.type.toString == 'ISSUE'}" th:text="${todo.type}"></span>
-                                    <span class="badge bg-primary" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
+                                    <span class="badge text-dark" style="background-color: #fd7e14" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
                                     <span class="badge bg-success" th:if = "${todo.type.toString == 'ENHANCEMENT'}" th:text="${todo.type}"></span>
 
                                     <p class="card-text" th:text="${todo.todo}"></p>
@@ -184,7 +184,7 @@
                             <span class="badge text-dark bg-info"  th:if = "${todo.type.toString == 'IDEA'}" th:text="${todo.type}"></span>
                             <span class="badge bg-danger" th:if = "${todo.type.toString == 'BUG'}" th:text="${todo.type}"></span>
                             <span class="badge text-dark bg-warning" th:if = "${todo.type.toString == 'ISSUE'}" th:text="${todo.type}"></span>
-                            <span class="badge bg-primary" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
+                            <span class="badge text-dark" style="background-color: #fd7e14" th:if = "${todo.type.toString == 'FEATURE'}" th:text="${todo.type}"></span>
                             <span class="badge bg-success" th:if = "${todo.type.toString == 'ENHANCEMENT'}" th:text="${todo.type}"></span>
 
                             <p class="card-text" th:text="${todo.todo}"></p>
