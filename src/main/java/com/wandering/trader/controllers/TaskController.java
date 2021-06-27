@@ -27,6 +27,7 @@ public class TaskController {
 
     @GetMapping
     public String getTasks(@RequestParam Long id, Model model, Authentication authentication){
+        model.addAttribute("projectList", projectService.getAllProjects());
         model.addAttribute("task", new Task());
         model.addAttribute("types", Task.TYPE.values());
         model.addAttribute("projectId", id);
