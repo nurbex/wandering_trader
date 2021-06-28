@@ -73,6 +73,7 @@ public class TaskController {
                 else {
                     if(taskService.findTaskById(taskId).get().getStatus().equals(Task.STATUS.DONE)){
                         taskOptional.get().setStatus(Task.STATUS.TODO);
+                        taskOptional.get().setType(Task.TYPE.BUG);
                         taskService.saveOrUpdateTask(taskOptional.get());
                     }
                 }
