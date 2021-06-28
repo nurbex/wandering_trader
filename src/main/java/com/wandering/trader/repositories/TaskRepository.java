@@ -11,3 +11,4 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findAllByProjectIdAndOwnerAndStatus(Long id, CustomUser owner, Task.STATUS status);
 }
+

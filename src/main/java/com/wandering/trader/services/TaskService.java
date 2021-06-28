@@ -29,4 +29,8 @@ public class TaskService {
     public List<Task> getTaskListByProjectIdAndOwnerAndStatus(Long id, CustomUser owner, Task.STATUS status){
         return taskRepository.findAllByProjectIdAndOwnerAndStatus(id, owner,status);
     }
+
+    public void deleteTaskById(Long id) {
+        taskRepository.deleteById(id);
+    }
 }

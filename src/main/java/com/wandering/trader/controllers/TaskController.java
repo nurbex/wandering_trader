@@ -94,4 +94,10 @@ public class TaskController {
         taskService.saveOrUpdateTask(task);
         return"redirect:/admin/tasks?id="+projectId;
     }
+
+    @PostMapping("/delete")
+    public String deleteProduct(@RequestParam Long projectId, @RequestParam Long id){
+        taskService.deleteTaskById(id);
+        return "redirect:/admin/tasks?id="+projectId;
+    }
 }
